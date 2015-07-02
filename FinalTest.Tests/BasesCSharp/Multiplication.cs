@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinalTest.Tests.BasesCSharp
 {
-    class Multiplication
+    class Multiplication : IOperation
     {
         public int Calculer(string s)
         {

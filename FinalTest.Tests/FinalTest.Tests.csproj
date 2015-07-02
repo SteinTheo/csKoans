@@ -48,7 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasesCSharp\BasesCSharpTests.cs" />
+    <Compile Include="BasesCSharp\Calculatrice.cs" />
     <Compile Include="BasesCSharp\Multiplication.cs" />
+    <Compile Include="BasesCSharp\Somme.cs" />
     <Compile Include="BasesCSharp\TypeReference.cs" />
     <Compile Include="LinqTests.cs" />
     <Compile Include="PatternsTests.cs" />
