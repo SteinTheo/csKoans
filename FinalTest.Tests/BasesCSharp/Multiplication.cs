@@ -12,11 +12,11 @@ namespace FinalTest.Tests.BasesCSharp
                 var tab = s.Split('*');
                 foreach (var i in tab)
                 {
-                    res = res*Convert.ToInt32(i);
+                    res = res * Convert.ToInt32(i);
                 }
                 return res;
             }
-            
+
             return -1;
         }
 

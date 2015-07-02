@@ -27,7 +27,7 @@ namespace FinalTest.Tests.BasesCSharp
                 res = sum.Calculer(s);
             }
 
-            
+
             return res;
         }
     }

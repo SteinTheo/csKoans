@@ -18,10 +18,9 @@ namespace FinalTest.Tests.Linq
         {
             get
             {
-                IEnumerable<int> tab;
                 return from num in _keyValuePairs
-                    where (num.Value % 2) == 0
-                    select num.Value;
+                       where (num.Value % 2) == 0
+                       select num.Value;
             }
         }
 
@@ -31,9 +30,32 @@ namespace FinalTest.Tests.Linq
             {
                 var keyValueImpairs = _keyValuePairs.OrderBy(val => val.Value);
                 var tab = from num in keyValueImpairs
-                    where (num.Value % 2) != 0
-                    select num.Key;
+                          where (num.Value % 2) != 0
+                          select num.Key;
                 return tab.Aggregate((chaine, next) => chaine + ", " + next);
+            }
+        }
+
+        public String PremierNombreDontLeTexteContientPlusDe5Caractères
+        {
+            get
+            {
+                var keyValueImpairs = _keyValuePairs.OrderBy(val => val.Value);
+                var tab = from num in keyValueImpairs
+                          where num.Key.Length > 5
+                          select num.Key;
+                return tab.First();
+            }
+        }
+
+        public IEnumerable<int> QuatreNombresSupérieursSuivant3
+        {
+            get
+            {
+                var tab = from num in _keyValuePairs
+                          where num.Value > 3
+                          select num.Value;
+                return tab.OrderBy(val => val).Take(4);
             }
         }
     }

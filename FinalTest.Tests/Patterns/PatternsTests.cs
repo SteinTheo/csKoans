@@ -1,8 +1,7 @@
 ﻿using System;
-using NFluent;
 using NUnit.Framework;
 
-namespace FinalTest.Tests
+namespace FinalTest.Tests.Patterns
 {
     [TestFixture]
     public class PatternsTests
