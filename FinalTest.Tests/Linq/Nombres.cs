@@ -24,5 +24,17 @@ namespace FinalTest.Tests.Linq
                     select num.Value;
             }
         }
+
+        public string TexteNombresImpairs
+        {
+            get
+            {
+                var keyValueImpairs = _keyValuePairs.OrderBy(val => val.Value);
+                var tab = from num in keyValueImpairs
+                    where (num.Value % 2) != 0
+                    select num.Key;
+                return tab.Aggregate((chaine, next) => chaine + ", " + next);
+            }
+        }
     }
 }
