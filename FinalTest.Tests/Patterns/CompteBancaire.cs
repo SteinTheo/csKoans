@@ -34,11 +34,22 @@ namespace FinalTest.Tests.Patterns
 
         public IEnumerable<IEvénementMétier> FaireUnRetrait(Montant montantRetrait, DateTime dateRetrait)
         {
+            if (montantRetrait.Montant1 > _compteCréé.AutorisationDeCrédit + _dépotRéalisé.MontantDepot.Montant1)
+            {
+                throw new RetraitNonAutorisé();
+            }
+
             yield return new RetraitRéalisé(_compteCréé.NuméroDeCompte, montantRetrait, dateRetrait);
             if (montantRetrait.Montant1 > _dépotRéalisé.MontantDepot.Montant1)
             {
                 yield return new BalanceNégativeDétectée(_compteCréé.NuméroDeCompte, new Montant(montantRetrait.Montant1 - _dépotRéalisé.MontantDepot.Montant1), dateRetrait);
             }
+
+
         }
+    }
+
+    internal class RetraitNonAutorisé : Exception
+    {
     }
 }

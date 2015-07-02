@@ -51,33 +51,33 @@ namespace FinalTest.Tests.Patterns
             Check.That(evenements).ContainsExactly<IEvénementMétier>(new RetraitRéalisé(_numéroDeCompte, montantRetrait, dateRetrait), new BalanceNégativeDétectée(_numéroDeCompte, new Montant(5), dateRetrait));
         }
 
-        //[Test]
-        //[ExpectedException(typeof(RetraitNonAutorisé))]
-        //public void EtantDonnéUnCompteBancaireInitialiséViaEventSourcingFaireUnRetraitEnDehorsDeLAutorisationDeCreditLèveUneException()
-        //{
-        //    var compteBancaire = new CompteBancaire(new CompteCréé(_numéroDeCompte, 10), new DépotRéalisé(_numéroDeCompte, new Montant(5), DateTime.Now));
-        //    var montantRetrait = new Montant(30);
-        //    var dateRetrait = DateTime.Now;
-        //    var evenements = compteBancaire.FaireUnRetrait(montantRetrait, dateRetrait);
+        [Test]
+        [ExpectedException(typeof(RetraitNonAutorisé))]
+        public void EtantDonnéUnCompteBancaireInitialiséViaEventSourcingFaireUnRetraitEnDehorsDeLAutorisationDeCreditLèveUneException()
+        {
+            var compteBancaire = new CompteBancaire(new CompteCréé(_numéroDeCompte, 10), new DépotRéalisé(_numéroDeCompte, new Montant(5), DateTime.Now));
+            var montantRetrait = new Montant(30);
+            var dateRetrait = DateTime.Now;
+            var evenements = compteBancaire.FaireUnRetrait(montantRetrait, dateRetrait);
 
-        //    Check.That(evenements).IsEmpty();
-        //}
+            Check.That(evenements).IsEmpty();
+        }
 
-        //[Test]
-        //public void EtantDonnéLaSynthèseDuCompteQuandUnEvénementRetraitRéaliséLaSynthèseEstModifiée()
-        //{
-        //    var debits = 145;
-        //    var credits = 120;
-        //    var synthèseDuCompte = new SynthèseCompteBancaire(_numéroDeCompte, debits, credits); // utilisé une classe avec implémentation de Equals 
-        //    var repository = new FakeRepository();
-        //    repository.Synthèses.Add(synthèseDuCompte);
+        [Test]
+        public void EtantDonnéLaSynthèseDuCompteQuandUnEvénementRetraitRéaliséLaSynthèseEstModifiée()
+        {
+            var debits = 145;
+            var credits = 120;
+            var synthèseDuCompte = new SynthèseCompteBancaire(_numéroDeCompte, debits, credits); // utilisé une classe avec implémentation de Equals 
+            var repository = new FakeRepository();
+            repository.Synthèses.Add(synthèseDuCompte);
 
-        //    var projection = new SynthèseCompteBancaireProjection(repository); // /!\ bien utilisé l'interface et non la classe Fake dans la signature du constructeur
-        //    var retraitRéalisé = new RetraitRéalisé(_numéroDeCompte, new Montant(15), DateTime.Now);
-        //    projection.Handle(retraitRéalisé);
+            var projection = new SynthèseCompteBancaireProjection(repository); // /!\ bien utilisé l'interface et non la classe Fake dans la signature du constructeur
+            var retraitRéalisé = new RetraitRéalisé(_numéroDeCompte, new Montant(15), DateTime.Now);
+            projection.Handle(retraitRéalisé);
 
-        //    Check.That(repository.Synthèses).ContainsExactly(new SynthèseCompteBancaire(_numéroDeCompte, 160, credits));
-        //}
+            Check.That(repository.Synthèses).ContainsExactly(new SynthèseCompteBancaire(_numéroDeCompte, 160, credits));
+        }
 
         //public class FakeRepository : ISynthèseCompteBancaireRepository
         //{

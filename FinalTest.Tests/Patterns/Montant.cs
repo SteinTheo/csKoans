@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FinalTest.Tests.Patterns
 {
-    struct Montant
+    public struct Montant
     {
         public override string ToString()
         {
@@ -14,7 +14,8 @@ namespace FinalTest.Tests.Patterns
 
         public int Montant1 { get; private set; }
 
-        public Montant(int montant) : this()
+        public Montant(int montant)
+            : this()
         {
             Montant1 = montant;
         }

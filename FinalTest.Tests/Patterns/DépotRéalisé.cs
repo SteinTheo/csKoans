@@ -11,7 +11,8 @@ namespace FinalTest.Tests.Patterns
         public Montant MontantDepot { get; private set; }
         private readonly DateTime _dateDepot;
 
-        public DépotRéalisé(string numéroDeCompte, Montant montantDepot, DateTime dateDepot) : this()
+        public DépotRéalisé(string numéroDeCompte, Montant montantDepot, DateTime dateDepot)
+            : this()
         {
             _numéroDeCompte = numéroDeCompte;
             MontantDepot = montantDepot;
