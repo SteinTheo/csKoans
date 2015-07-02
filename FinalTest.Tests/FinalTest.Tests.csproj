@@ -52,10 +52,11 @@
     <Compile Include="BasesCSharp\Multiplication.cs" />
     <Compile Include="BasesCSharp\Somme.cs" />
     <Compile Include="BasesCSharp\TypeReference.cs" />
-    <Compile Include="LinqTests.cs" />
+    <Compile Include="BasesCSharp\TypeValeur.cs" />
+    <Compile Include="Linq\LinqTests.cs" />
+    <Compile Include="Linq\Nombres.cs" />
     <Compile Include="PatternsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BasesCSharp\TypeValeur.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

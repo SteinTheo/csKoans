@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using NFluent;
 using NUnit.Framework;
+using FinalTest.Tests.Linq;
 
 namespace FinalTest.Tests
 {
@@ -39,23 +40,23 @@ namespace FinalTest.Tests
             };
         }
 
-        //[Test]
-        //public void RécupérerLesNombresPairs()
-        //{
-        //    var nombres = new Nombres(keyValuePairs);
-        //    var nombresPairs = nombres.NombresPairs; // getter seulement qui retourne un IEnumerable<int> en utilisant Linq (i.e sans utiliser de boucles) -> Where + Select
+        [Test]
+        public void RécupérerLesNombresPairs()
+        {
+            var nombres = new Nombres(keyValuePairs);
+            var nombresPairs = nombres.NombresPairs; // getter seulement qui retourne un IEnumerable<int> en utilisant Linq (i.e sans utiliser de boucles) -> Where + Select
 
-        //    Check.That(nombresPairs).ContainsExactly(4, 2, 8, 6);
-        //}
+            Check.That(nombresPairs).ContainsExactly(4, 2, 8, 6);
+        }
 
-        //[Test]
-        //public void RécupérerLesNombresPairsBis()
-        //{
-        //    var nombres = new Nombres(otherKeyValuePairs);
-        //    var nombresPairs = nombres.NombresPairs; // même propriété
+        [Test]
+        public void RécupérerLesNombresPairsBis()
+        {
+            var nombres = new Nombres(otherKeyValuePairs);
+            var nombresPairs = nombres.NombresPairs; // même propriété
 
-        //    Check.That(nombresPairs).ContainsExactly(10, 74, 28, 66, 92);
-        //}
+            Check.That(nombresPairs).ContainsExactly(10, 74, 28, 66, 92);
+        }
 
         //[Test]
         //public void RécupérerUneChaîneContenantLesNombresImpairsAuFormatTextuel()
